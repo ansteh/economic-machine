@@ -1,0 +1,26 @@
+{
+  "name": "economic-machine",
+  "version": "1.0.0",
+  "description": "transaction based approach",
+  "main": "index.js",
+  "dependencies": {
+    "lodash": "^4.17.10"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ansteh/economic-machine.git"
+  },
+  "keywords": [
+    "economic"
+  ],
+  "author": "Andre, Stehle",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ansteh/economic-machine/issues"
+  },
+  "homepage": "https://github.com/ansteh/economic-machine#readme"
+}
