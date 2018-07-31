@@ -4,7 +4,7 @@ const DEFAULT_SELLER = {
   quantity: 0,
 };
 
-const Seller = (state) => {
+const create = (state) => {
   state = _.assign({}, DEFAULT_SELLER, state);
 
   const getQuantity = () => {
@@ -21,6 +21,13 @@ const Seller = (state) => {
   };
 };
 
+const random = () => {
+  const quantity = _.random(1, 100);
+
+  return create({ quantity });
+};
+
 module.exports = {
-  Seller,
+  create,
+  random,
 };

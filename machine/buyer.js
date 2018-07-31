@@ -6,7 +6,7 @@ const DEFAULT_BUYER = {
   totalAmountSpent: 0,
 };
 
-const Buyer = (state) => {
+const create = (state) => {
   state = _.assign({}, DEFAULT_BUYER, state);
 
   const updateTotalAmountSpent = () => {
@@ -24,6 +24,14 @@ const Buyer = (state) => {
   };
 };
 
+const random = () => {
+  const money = _.random(1, 1000);
+  const credit = _.random(1, 1000);
+
+  return create({ money, credit });
+};
+
 module.exports = {
-  Buyer,
+  create,
+  random,
 };

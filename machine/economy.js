@@ -1,11 +1,14 @@
 const _ = require('lodash');
 
+const Buyer = require('./buyer.js');
+const Seller = require('./seller.js');
+
 const DEFAULT_ECONOMY = {
   buyers: [],
   sellers: [],
 };
 
-const Economy = (state) => {
+const create = (state) => {
   state = _.assign({}, DEFAULT_ECONOMY, state);
 
   const getTotalAmount = () => {
@@ -51,6 +54,14 @@ const Economy = (state) => {
   };
 };
 
+const random = () => {
+  const buyers = _.map(_.range(10), index => Buyer.random());
+  const sellers = _.map(_.range(10), index => Seller.random());
+
+  return create({ buyers, sellers });
+};
+
 module.exports = {
-  Economy,
+  create,
+  random,
 };
