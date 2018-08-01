@@ -45,12 +45,21 @@ const create = (state) => {
     updatePrice();
   };
 
+  const log = () => {
+    console.log(`---`);
+    console.log(`Total amount spent: ${getTotalAmount()}`);
+    console.log(`Total quantity: ${getTotalQuantity()}`);
+    console.log(`Price: ${getPrice()}`);
+    console.log(`---`);
+  };
+
   update();
 
   return {
     getTotalAmount,
     getTotalQuantity,
     getPrice,
+    log,
   };
 };
 
