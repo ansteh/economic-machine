@@ -39,10 +39,21 @@ const create = (state) => {
     state.price = state.totalAmountSpent / state.totalQuantity;
   };
 
+  const getBuyerDebt = () => {
+    return state.buyerDebt;
+  };
+
+  const updateBuyerDebt = () => {
+    state.buyerDebt = _.sumBy(state.buyers, (buyer) => {
+      return buyer.getDebt();
+    });
+  };
+
   const update = () => {
     updateTotalAmountSpent();
     updateTotalQuantity();
     updatePrice();
+    updateBuyerDebt();
   };
 
   const log = () => {
@@ -50,16 +61,31 @@ const create = (state) => {
     console.log(`Total amount spent: ${getTotalAmount()}`);
     console.log(`Total quantity: ${getTotalQuantity()}`);
     console.log(`Price: ${getPrice()}`);
+    console.log(`Buyer debt: ${getBuyerDebt()}`);
     console.log(`---`);
   };
 
   update();
+
+  const next = () => {
+    _.forEach(state.buyers, (buyer) => {
+      buyer.next();
+    }, 0);
+
+    _.forEach(state.sellers, (seller) => {
+      seller.next();
+    }, 0);
+
+    update();
+  };
 
   return {
     getTotalAmount,
     getTotalQuantity,
     getPrice,
     log,
+
+    next,
   };
 };
 

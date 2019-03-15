@@ -15,9 +15,15 @@ const create = (state) => {
     state.quantity = quantity;
   };
 
+  const next = (min = 1, max = 1000) => {
+    state.quantity = _.random(1, 100);
+  };
+
   return {
     getQuantity,
     setQuantity,
+
+    next,
   };
 };
 

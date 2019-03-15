@@ -23,6 +23,9 @@ const Economy = require('./machine/economy.js');
 
 // const economy = Economy.random();
 
+const economy = Economy.random();
+
 _.forEach(_.range(10), () => {
-  Economy.random().log();
+  economy.next();
+  economy.log();
 });
